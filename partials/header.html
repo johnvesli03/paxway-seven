@@ -166,16 +166,14 @@
 </header>
 <script>
   function closeAnnouncement() {
-      document.getElementById("announcementBar").style.display = "none";
-      localStorage.setItem("announcementClosed", "true");
+    document.getElementById("announcementBar").style.display = "none";
+    sessionStorage.setItem("announcementClosed", "true");
   }
 
   window.addEventListener('load', function() {
-      // Show announcement bar on EVERY refresh (ignores localStorage)
-      // Remove localStorage check to always show on refresh
-      // if (localStorage.getItem("announcementClosed") === "true") {
-      //     document.getElementById("announcementBar").style.display = "none";
-      // }
+    if (sessionStorage.getItem("announcementClosed") === "true") {
+      document.getElementById("announcementBar").style.display = "none";
+    }
   });
 </script>
 <style>
