@@ -190,30 +190,34 @@
 <!-- ===================== ANNOUNCEMENT CLOSE SCRIPT (WORKING) ===================== -->
 <script>
 console.log("✅ announcement script loaded");
+
 (() => {
   const KEY = "announcementClosed";
-
-  // Use sessionStorage (closes only for the current tab session)
-  // Change to localStorage if you want it to stay closed across browser restarts:
   const storage = sessionStorage;
 
   function hide(bar) {
+    console.log("🧪 hide() called, bar =", bar);
     if (!bar) return;
     bar.classList.add("is-hidden");
     storage.setItem(KEY, "true");
+    console.log("🧪 bar classList after hide:", bar.className);
   }
 
-  // If already closed, hide on load
+  // On load, hide if previously closed
   document.addEventListener("DOMContentLoaded", () => {
     const bar = document.getElementById("announcementBar");
+    console.log("🧪 DOMContentLoaded. bar found?", !!bar);
+    console.log("🧪 storage value:", storage.getItem(KEY));
+
     if (storage.getItem(KEY) === "true") hide(bar);
   });
 
-  // Capture-phase click handler so it still works even if other scripts stop propagation
+  // Capture-phase click handler
   document.addEventListener("click", (e) => {
     const btn = e.target.closest("[data-announce-close]");
     if (!btn) return;
 
+    console.log("❌ close button CLICK detected", btn);
     e.preventDefault();
 
     const bar = btn.closest(".announcement-bar-modern") || document.getElementById("announcementBar");
@@ -221,6 +225,7 @@ console.log("✅ announcement script loaded");
   }, true);
 })();
 </script>
+
 
 <!-- ===================== STYLES (FULL) ===================== -->
 <style>
@@ -454,3 +459,19 @@ console.log("✅ announcement script loaded");
     .announcement-text-wrapper { animation: none; }
   }
 </style>
+/* HARD FORCE HIDE */
+.announcement-bar-modern.is-hidden { 
+  display: none !important; 
+}
+
+/* Make sure the X is always clickable and on top */
+.announcement-actions { position: relative; z-index: 9999; }
+.announcement-close  { position: relative; z-index: 10000; pointer-events: auto; }
+
+/* Prevent the moving ticker area from stealing clicks */
+.announcement-left,
+.announcement-text-wrapper { pointer-events: none; }
+
+/* Re-enable clicks for action area */
+.announcement-actions,
+.announcement-actions * { pointer-events: auto; }
