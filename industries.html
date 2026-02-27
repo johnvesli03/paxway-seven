@@ -8,7 +8,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800;900&display=swap" rel="stylesheet">
 
   <style>
-    /* Hero Section - Same as Services */
     .industries-hero {
       min-height: 100vh;
       padding: 140px 0 80px;
@@ -33,13 +32,10 @@
 
     .industries-hero .container { position: relative; z-index: 2; }
 
-    /* THICKER & MORE PROMINENT CTA - Same as Services */
     .industries-cta {
       padding: 100px 0;
       text-align: center;
-      /* THICKER, MORE VIBRANT BACKGROUND */
       background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 30%, #bfdbfe 70%, #93c5fd 100%);
-      /* THICK BORDER TOP */
       border-top: 4px solid rgba(61,90,254,0.2);
       position: relative;
       overflow: hidden;
@@ -61,7 +57,6 @@
       z-index: 2;
     }
 
-    /* CLEAN HOVER EFFECT - NO BOXING LINES */
     .industry-card {
       transition: all 0.3s ease;
       cursor: pointer;
@@ -72,7 +67,6 @@
       overflow: hidden;
     }
 
-    /* Animated gradient top border ONLY */
     .industry-card::before {
       content: '';
       position: absolute;
@@ -89,13 +83,11 @@
       left: 0;
     }
 
-    /* ONLY glow + lift, NO borders */
     .industry-card:hover {
       box-shadow: 0 25px 50px rgba(61,90,254,0.25);
       transform: translateY(-8px) scale(1.02);
     }
 
-    /* Smooth image zoom */
     .industry-card .industry-image img {
       transition: transform 0.4s ease;
     }
@@ -109,7 +101,6 @@
 <div id="header-container"></div>
 
 <main>
-  <!-- NEW HERO SECTION - Same as Services -->
   <section class="industries-hero">
     <div class="container">
       <h1 class="page-title" style="font-size: 4rem; font-weight: 900; text-shadow: 0 8px 32px rgba(0,0,0,0.5);">Industries</h1>
@@ -117,7 +108,6 @@
     </div>
   </section>
 
-  <!-- ORIGINAL INDUSTRIES SECTION (UNCHANGED) -->
   <section class="section section-alt industries-scroll-section">
     <div class="container">
 
@@ -136,6 +126,17 @@
               </div>
               <h3>FinTech</h3>
               <p>Customer support copilots, risk insights, and secure integrations.</p>
+            </article>
+          </a>
+
+          <!-- BANKING CARD -->
+          <a href="industry-banking.html" class="industry-card">
+            <article>
+              <div class="industry-image">
+                <img src="images/i5.jpg" alt="Banking Industry">
+              </div>
+              <h3>🏦 Banking</h3>
+              <p>Intelligent automation, compliance workflows, and AI-driven customer experiences for modern banks.</p>
             </article>
           </a>
 
@@ -169,7 +170,6 @@
     </div>
   </section>
 
-  <!-- NEW THICKER CTA - Same as Services -->
   <section class="industries-cta">
     <div class="container">
       <h2 style="font-size: 34px; font-weight: 800; color: #1e293b; margin-bottom: 20px;">Ready to Transform?</h2>
