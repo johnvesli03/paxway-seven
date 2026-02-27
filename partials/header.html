@@ -12,10 +12,9 @@
 
       <div class="announcement-actions">
         <a href="contact.html" class="announcement-btn">Get in Touch</a>
-        <button class="announcement-close" id="announcementClose" type="button" aria-label="Close announcement">
-  ✕
-</button>
-
+      <button type="button" class="announcement-close" data-announce-close aria-label="Close announcement">
+        ✕
+    </button>
       </div>
     </div>
   </div>
@@ -168,17 +167,44 @@
   </div>
 </header>
 <script>
-  function closeAnnouncement() {
-    document.getElementById("announcementBar").style.display = "none";
-    sessionStorage.setItem("announcementClosed", "true");
+(() => {
+  const KEY = "announcementClosed";
+  const storage = sessionStorage; // change to localStorage if you want it to persist longer
+
+  function initAnnouncementClose() {
+    const bar = document.getElementById("announcementBar");
+    const btn = document.querySelector("[data-announce-close]");
+
+    if (!bar || !btn) return false;
+
+    // Hide immediately if previously closed
+    if (storage.getItem(KEY) === "true") {
+      bar.style.display = "none";
+    }
+
+    // Bind click
+    btn.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+
+      // Prefer closing the bar this button is inside (handles duplicate headers)
+      const localBar = btn.closest("#announcementBar") || btn.closest(".announcement-bar-modern") || bar;
+      if (localBar) localBar.style.display = "none";
+
+      storage.setItem(KEY, "true");
+    });
+
+    return true;
   }
 
-  window.addEventListener('load', function() {
-    if (sessionStorage.getItem("announcementClosed") === "true") {
-      document.getElementById("announcementBar").style.display = "none";
-    }
-  });
+  // Try now, and again when DOM is ready (covers injected templates)
+  if (!initAnnouncementClose()) {
+    document.addEventListener("DOMContentLoaded", initAnnouncementClose, { once: true });
+    window.addEventListener("load", initAnnouncementClose, { once: true });
+  }
+})();
 </script>
+
 <style>
   /* PREMIUM DROPDOWN STYLES */
   .nav-dropdown {
