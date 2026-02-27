@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Paxway — Services</title>
+  <link rel="stylesheet" href="assets/css/styles.css">
+
+  <style>
+    /* Hero Section - Added */
+    .services-hero {
+      min-height: 100vh;
+      padding: 140px 0 80px;
+      background: linear-gradient(rgba(0,20,60,0.4), rgba(61,90,254,0.3)),
+                  url("images/ser.jpg");
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      text-align: center;
+      color: white;
+      display: flex;
+      align-items: center;
+    }
+
+    .services-hero::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: linear-gradient(rgba(0,20,60,0.4), rgba(61,90,254,0.3));
+      z-index: 1;
+    }
+
+    .services-hero .container { position: relative; z-index: 2; }
+
+    /* THICKER & MORE PROMINENT CTA */
+    .services-cta {
+      padding: 100px 0;
+      text-align: center;
+      /* THICKER, MORE VIBRANT BACKGROUND */
+      background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 30%, #bfdbfe 70%, #93c5fd 100%);
+      /* THICK BORDER TOP */
+      border-top: 4px solid rgba(61,90,254,0.2);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .services-cta::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, transparent, #3d5afe, #667eea, #3d5afe, transparent);
+      z-index: 1;
+    }
+
+    .services-cta .container {
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Existing styles unchanged */
+    .service-link { text-decoration: none; color: inherit; display: block; opacity: 1 !important; }
+    .service-card {
+      background: #ffffff;
+      border: 1px solid rgba(15, 23, 42, 0.08);
+      transition: transform 0.4s cubic-bezier(0.2, 1, 0.3, 1),
+                  box-shadow 0.4s cubic-bezier(0.2, 1, 0.3, 1),
+                  border-color 0.3s ease;
+      cursor: pointer;
+      position: relative;
+    }
+    .service-card:hover {
+      transform: translateY(-12px);
+      box-shadow: 0 20px 40px rgba(15, 23, 42, 0.15);
+      border-color: var(--accent);
+    }
+    .service-card .card-img { overflow: hidden; }
+    .service-card .card-img img { transition: transform 0.5s ease; display: block; }
+    .service-card:hover .card-img img { transform: scale(1.05); }
+    .service-card:hover .arrow-link { background: var(--accent); color: white; }
+  </style>
+</head>
+<body>
+<div id="header-container"></div>
+
+<main>
+  <!-- ADDED HERO SECTION -->
+  <section class="services-hero">
+    <div class="container">
+      <h1 class="page-title" style="font-size: 4rem; font-weight: 900; text-shadow: 0 8px 32px rgba(0,0,0,0.5);">Services</h1>
+      <p style="font-size: 20px; max-width: 650px; margin: 0 auto; line-height: 1.6; font-weight: 500;">Build, integrate, automate, and modernize with enterprise-grade delivery.</p>
+    </div>
+  </section>
+
+  <!-- ORIGINAL SERVICES SECTION (UNCHANGED) -->
+  <section class="page-head">
+    <div class="container">
+      <h2 class="page-title">Services</h2>
+    </div>
+  </section>
+
+  <section class="section services-modern">
+    <div class="container">
+      <div class="services-grid">
+        <div class="services-col">
+          <a href="service-rag.html" class="service-link">
+            <div class="service-card">
+              <div class="card-img"><img src="images/s1.jpeg" alt="RAG"></div>
+              <div class="card-text">
+                <h3>RAG App Development</h3>
+                <p>Enterprise Retrieval-Augmented Generation systems powered by LLMs.</p>
+              </div>
+              <div class="arrow-link">↗</div>
+            </div>
+          </a>
+
+          <a href="service-ai-app.html" class="service-link">
+            <div class="service-card">
+              <div class="card-text">
+                <h3>AI App Development</h3>
+                <p>Custom AI-powered applications from dashboards to predictive platforms.</p>
+              </div>
+              <div class="card-img"><img src="images/s2.jpeg" alt="AI App"></div>
+              <div class="arrow-link">↗</div>
+            </div>
+          </a>
+        </div>
+
+        <div class="services-col">
+          <a href="service-integrations.html" class="service-link">
+            <div class="service-card large-feature">
+              <div class="card-text">
+                <h3>AI Integrations</h3>
+                <p>Seamless AI model integration with APIs and enterprise security layers.</p>
+              </div>
+              <div class="card-img"><img src="images/s3.jpeg" alt="Integrations"></div>
+              <div class="arrow-link">↗</div>
+            </div>
+          </a>
+
+          <a href="service-automation.html" class="service-link">
+            <div class="service-card">
+              <div class="card-img"><img src="images/s6.jpeg" alt="Automation"></div>
+              <div class="card-text">
+                <h3>Business Automation</h3>
+                <p>AI-driven workflow automation that eliminates repetitive tasks.</p>
+              </div>
+              <div class="arrow-link">↗</div>
+            </div>
+          </a>
+        </div>
+
+        <div class="services-col">
+          <a href="service-erp.html" class="service-link">
+            <div class="service-card">
+              <div class="card-img"><img src="images/s4.jpeg" alt="ERP"></div>
+              <div class="card-text">
+                <h3>Custom ERP Solution</h3>
+                <p>Modular ERP platforms with analytics and process integration.</p>
+              </div>
+              <div class="arrow-link">↗</div>
+            </div>
+          </a>
+
+          <a href="service-chatbots.html" class="service-link">
+            <div class="service-card">
+              <div class="card-text">
+                <h3>AI Chatbot Development</h3>
+                <p>Context-aware conversational AI with omnichannel deployment.</p>
+              </div>
+              <div class="card-img"><img src="images/s5.jpeg" alt="Chatbots"></div>
+              <div class="arrow-link">↗</div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- THICKER CTA WITH PROMINENT BACKGROUND -->
+  <section class="services-cta">
+    <div class="container">
+      <h2 style="font-size: 34px; font-weight: 800; color: #1e293b; margin-bottom: 20px;">Ready to Build?</h2>
+      <p style="font-size: 18px; color: #64748b; margin-bottom: 36px; max-width: 600px; margin-left: auto; margin-right: auto;">
+        Choose a service or discuss your custom requirements.
+      </p>
+      <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+        <a style="background: #3d5afe; color: white; padding: 16px 32px; border-radius: 12px; text-decoration: none; font-weight: 700; font-size: 16px; box-shadow: 0 10px 30px rgba(61,90,254,0.3);" href="contact.html">
+          Start Conversation
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+<div id="footer-container"></div>
+<script src="./assets/js/main.js"></script>
+</body>
+</html>

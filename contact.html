@@ -1,0 +1,568 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Paxway — Contact</title>
+  <meta name="description" content="Contact Paxway to discuss AI, automation, integrations, and ERP solutions." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css" />
+
+  <style>
+    /* Hero Section */
+    .contact-hero {
+      min-height: 100vh;
+      padding: 140px 0 80px;
+      background: linear-gradient(rgba(0,20,60,0.4), rgba(61,90,254,0.3)),
+                  url("images/cont.jpg");
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      text-align: center;
+      color: white;
+      display: flex;
+      align-items: center;
+    }
+
+    .contact-hero::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: linear-gradient(rgba(0,20,60,0.4), rgba(61,90,254,0.3));
+      z-index: 1;
+    }
+
+    .contact-hero .container { position: relative; z-index: 2; }
+
+    /* Main Section */
+    .contact-modern {
+      padding: 100px 0;
+      background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: stretch;
+    }
+
+    /* Left Section - WHITE */
+    .contact-left {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      height: fit-content;
+      background: white;
+      padding: 36px;
+      border-radius: 20px;
+      border: 1px solid rgba(61,90,254,0.15);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    }
+
+    .contact-main-title {
+      font-size: 36px;
+      font-weight: 800;
+      background: linear-gradient(135deg, #1e293b 0%, #3d5afe 50%, #667eea 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1.2;
+      margin: 0;
+    }
+
+    .contact-subtitle {
+      color: #64748b;
+      font-size: 16px;
+      line-height: 1.6;
+      font-weight: 500;
+    }
+
+    .contact-features {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    .feature-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 16px;
+      background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+      border: 3px solid rgba(61,90,254,0.4);
+      border-radius: 12px;
+      font-weight: 600;
+      color: #1e293b;
+      font-size: 14px;
+      transition: all 0.3s ease;
+      height: 56px;
+    }
+
+    .feature-item:hover {
+      transform: translateX(6px);
+      box-shadow: 0 8px 24px rgba(61,90,254,0.3);
+      border-color: rgba(61,90,254,0.6);
+    }
+
+    .feature-icon {
+      width: 28px;
+      height: 28px;
+      background: linear-gradient(135deg, #3d5afe, #667eea);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 700;
+      font-size: 12px;
+    }
+
+    /* Process Section */
+    .contact-process {
+      margin-top: 24px;
+      padding: 24px;
+      background: linear-gradient(135deg, rgba(61,90,254,0.04) 0%, rgba(61,90,254,0.02) 100%);
+      border: 2px solid rgba(61,90,254,0.15);
+      border-radius: 16px;
+    }
+
+    .contact-process h4 {
+      font-size: 18px;
+      font-weight: 800;
+      color: #1e293b;
+      margin-bottom: 16px;
+      background: linear-gradient(135deg, #3d5afe 0%, #667eea 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .process-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .process-step {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 14px;
+      color: #374151;
+      line-height: 1.5;
+    }
+
+    .step-number {
+      width: 28px;
+      height: 28px;
+      background: linear-gradient(135deg, #3d5afe, #667eea);
+      color: white;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 13px;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    /* FORM - WHITE */
+    .contact-form-container {
+      background: white;
+      padding: 36px;
+      border-radius: 20px;
+      border: 1px solid rgba(61,90,254,0.15);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    }
+
+    .form-header {
+      text-align: center;
+      margin-bottom: 0;
+    }
+
+    .form-header h3 {
+      font-size: 20px;
+      font-weight: 800;
+      color: #1e293b;
+      margin: 0 0 4px 0;
+    }
+
+    .form-header p {
+      color: #64748b;
+      font-size: 14px;
+      margin: 0;
+      font-weight: 500;
+    }
+
+    .form-input-row {
+      display: flex;
+      gap: 16px;
+    }
+
+    .form-fields {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      flex: 1;
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .field-half {
+      flex: 1;
+    }
+
+    .field label {
+      font-weight: 600;
+      color: #374151;
+      margin-bottom: 8px;
+      font-size: 13px;
+    }
+
+    /* FORM INPUTS WITH GRADIENT BACKGROUND */
+    .field input,
+    .field textarea {
+      width: 100%;
+      padding: 14px 16px;
+      border: 2px solid rgba(61,90,254,0.15);
+      border-radius: 12px;
+      font-size: 14px;
+      transition: all 0.3s ease;
+      font-family: inherit;
+      background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+      box-sizing: border-box;
+      height: 48px;
+    }
+
+    .field textarea {
+      height: 90px;
+      resize: vertical;
+      min-height: 90px;
+    }
+
+    .field input:focus,
+    .field textarea:focus {
+      outline: none;
+      border-color: #3d5afe;
+      background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+      box-shadow:
+        0 0 0 4px rgba(61,90,254,0.15),
+        0 4px 12px rgba(61,90,254,0.2);
+      transform: translateY(-1px);
+    }
+
+    .company-spacer {
+      height: 12px;
+    }
+
+    .form-submit {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-top: 24px;
+      padding-top: 20px;
+      border-top: 2px solid rgba(61,90,254,0.15);
+    }
+
+    .submit-btn {
+      background: linear-gradient(135deg, #3d5afe 0%, #667eea 100%);
+      color: white;
+      padding: 16px 28px;
+      border: none;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 14px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 10px 30px rgba(61,90,254,0.4);
+    }
+
+    .submit-btn:hover:not(:disabled) {
+      transform: translateY(-2px);
+      box-shadow: 0 20px 40px rgba(61,90,254,0.5);
+    }
+
+    .submit-btn:disabled {
+      opacity: 0.7;
+      cursor: not-allowed;
+    }
+
+    .fineprint {
+      font-size: 12px;
+      color: #9ca3af;
+      text-align: center;
+      margin: 0;
+      font-weight: 500;
+      line-height: 1.4;
+    }
+
+    .form-status {
+      padding: 12px;
+      border-radius: 10px;
+      text-align: center;
+      font-weight: 600;
+      font-size: 13px;
+      display: none;
+    }
+
+    .form-status.success {
+      background: linear-gradient(135deg, #10b981, #34d399);
+      color: white;
+      border: 2px solid rgba(16, 185, 129, 0.3);
+    }
+
+    .form-status.error {
+      background: linear-gradient(135deg, #ef4444, #f87171);
+      color: white;
+      border: 2px solid rgba(239, 68, 68, 0.3);
+    }
+
+    /* CONTACT CARDS - THICK GRADIENT BORDERS */
+    .contact-info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 12px;
+      margin-top: 60px;
+    }
+
+    .contact-card {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 16px;
+      background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+      border: 3px solid rgba(61,90,254,0.4);
+      border-radius: 12px;
+      font-weight: 600;
+      color: #1e293b;
+      font-size: 14px;
+      transition: all 0.3s ease;
+      height: 56px;
+    }
+
+    .contact-card:hover {
+      transform: translateX(6px);
+      box-shadow: 0 8px 24px rgba(61,90,254,0.3);
+      border-color: rgba(61,90,254,0.6);
+    }
+
+    .info-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 700;
+      color: white;
+      flex-shrink: 0;
+    }
+
+    .info-icon.blue {
+      background: linear-gradient(135deg, #3d5afe, #667eea);
+    }
+    .info-icon.green {
+      background: linear-gradient(135deg, #10b981, #34d399);
+    }
+    .info-icon.pink {
+      background: linear-gradient(135deg, #ec4899, #f472b6);
+    }
+
+    .contact-card span {
+      margin: 0;
+      font-size: 14px;
+      font-weight: 600;
+      color: #1e293b;
+      line-height: 1.3;
+    }
+
+    .contact-card a {
+      color: #1e293b !important;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .contact-card a:hover {
+      text-decoration: underline;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .contact-grid { grid-template-columns: 1fr; gap: 50px; }
+      .contact-hero { min-height: 75vh; padding: 100px 0 60px; }
+      .contact-modern { padding: 80px 0; }
+      .contact-form-container, .contact-left { padding: 28px 20px; }
+      .contact-features { grid-template-columns: 1fr; }
+      .contact-main-title { font-size: 32px; }
+      .form-input-row { flex-direction: column; gap: 0; }
+      .contact-info-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+    }
+
+    @media (max-width: 600px) {
+      .container { padding: 0 20px; }
+      .contact-info-grid { grid-template-columns: 1fr; }
+      .contact-main-title { font-size: 28px; }
+    }
+  </style>
+</head>
+<body>
+<div id="header-container"></div>
+
+<main>
+  <!-- Hero Section -->
+  <section class="contact-hero">
+    <div class="container">
+      <h1 class="page-title" style="font-size: 4rem; font-weight: 900; text-shadow: 0 8px 32px rgba(0,0,0,0.5);">Contact Us</h1>
+      <p style="font-size: 20px; max-width: 650px; margin: 0 auto; line-height: 1.6; font-weight: 500;">Tell us what you're building. We'll reply within 1–2 business days.</p>
+    </div>
+  </section>
+
+  <!-- Modern Contact Section -->
+  <section class="contact-modern">
+    <div class="container">
+      <div class="contact-grid">
+        <!-- Get In Touch - WHITE -->
+        <div class="contact-left">
+          <h1 class="contact-main-title">Get In Touch</h1>
+          <p class="contact-subtitle">Ready to build your AI solution? Our team responds within 24 hours.</p>
+
+          <div class="contact-features">
+            <div class="feature-item">
+              <div class="feature-icon">🚀</div>
+              <span>AI Solutions</span>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon">⚡</div>
+              <span>Fast Deployment</span>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon">🔒</div>
+              <span>Enterprise Secure</span>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon">📊</div>
+              <span>Proven Results</span>
+            </div>
+          </div>
+
+          <div class="contact-process">
+            <h4>How We Work</h4>
+            <div class="process-steps">
+              <div class="process-step">
+                <div class="step-number">1</div>
+                <span>Tell us your AI & automation needs</span>
+              </div>
+              <div class="process-step">
+                <div class="step-number">2</div>
+                <span>Get custom solution proposal in 24hrs</span>
+              </div>
+              <div class="process-step">
+                <div class="step-number">3</div>
+                <span>Deploy production-ready system</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- FORM - WHITE WITH GRADIENT INPUT BACKGROUNDS -->
+        <div class="contact-form-container">
+          <div class="form-header">
+            <h3>Send us a message</h3>
+            <p>We'll get back to you within 24 hours</p>
+          </div>
+
+          <form id="contactForm" action="https://formspree.io/f/xqeddlbd" method="POST">
+            <input type="hidden" name="_subject" value="New Paxway Contact Request">
+            <input type="hidden" name="_captcha" value="false">
+
+            <div class="form-input-row">
+              <div class="field field-half">
+                <label for="name">Full name</label>
+                <input id="name" name="name" type="text" placeholder="Your name" required />
+              </div>
+              <div class="field field-half">
+                <label for="email">Work email</label>
+                <input id="email" name="email" type="email" placeholder="name@company.com" required />
+              </div>
+            </div>
+
+            <div class="form-fields">
+              <div class="company-spacer"></div>
+              <div class="field">
+                <label for="company">Company</label>
+                <input id="company" name="company" type="text" placeholder="Company name" />
+              </div>
+
+              <div class="field">
+                <label for="message">What are you building?</label>
+                <textarea id="message" name="message" placeholder="Describe your project..." required></textarea>
+              </div>
+            </div>
+
+            <div class="form-submit">
+              <button class="submit-btn" type="submit" id="submitBtn">
+                Send Message
+              </button>
+              <p class="fineprint">Your information is secure with us. No spam guaranteed.</p>
+              <p class="form-status" id="formStatus" aria-live="polite"></p>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- CONTACT CARDS -->
+      <div class="contact-info-grid">
+        <div class="contact-card">
+          <div class="info-icon blue">📞</div>
+          <span>Call Us: <a href="tel:+918186057147">+91-8186057147</a></span>
+        </div>
+
+        <div class="contact-card">
+          <div class="info-icon pink">✉️</div>
+          <span>Email: <a href="mailto:info@paxway.in">info@paxway.in</a></span>
+        </div>
+
+        <div class="contact-card">
+          <div class="info-icon green">📍</div>
+          <span>Jubilee Enclave, HITEC City, Hyderabad</span>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div id="footer-container"></div>
+
+<script src="./assets/js/main.js"></script>
+<script>
+  document.getElementById('contactForm').addEventListener('submit', function(e) {
+    const btn = document.getElementById('submitBtn');
+    const status = document.getElementById('formStatus');
+
+    btn.textContent = 'Sending...';
+    btn.disabled = true;
+    status.style.display = 'none';
+
+    setTimeout(() => {
+      status.textContent = '✅ Message sent successfully!';
+      status.className = 'form-status success';
+      status.style.display = 'block';
+      btn.textContent = 'Sent!';
+    }, 1500);
+  });
+</script>
+</body>
+</html>

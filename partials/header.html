@@ -1,0 +1,401 @@
+<header class="site-header">
+  <!-- Modern Announcement Bar - FIXED -->
+  <div class="announcement-bar-modern" id="announcementBar">
+    <div class="announcement-inner">
+      <div class="announcement-left">
+        <div class="announcement-text-wrapper">
+          <div class="announcement-text">
+            🚀 Paxway Solutions is now booking projects for <strong>2026</strong>. Limited slots available! &nbsp;&nbsp;&nbsp;&nbsp;
+          </div>
+        </div>
+      </div>
+
+      <div class="announcement-actions">
+        <a href="contact.html" class="announcement-btn">Get in Touch</a>
+        <span class="announcement-close" onclick="closeAnnouncement()">✕</span>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="header-inner">
+      <!-- Brand / Logo -->
+      <a href="index.html" class="brand">
+        <img src="images/logo.png" alt="Paxway" class="logo-img"
+             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <span class="brand-icon" style="display:none;">PW</span>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="nav" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+
+        <!-- ENHANCED DROPDOWN -->
+        <div class="nav-dropdown">
+          <a href="services.html" class="dropdown-toggle">
+            Services
+            <svg class="dropdown-arrow" width="12" height="12" viewBox="0 0 12 12" fill="none">
+              <path d="M1 4L6 9L11 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+
+          <div class="dropdown-menu">
+            <div class="dropdown-grid">
+              <a href="service-rag.html" class="dropdown-item">
+                <div class="dropdown-icon">📚</div>
+                <span>RAG App Development</span>
+              </a>
+              <a href="service-ai-app.html" class="dropdown-item">
+                <div class="dropdown-icon">🚀</div>
+                <span>AI App Development</span>
+              </a>
+              <a href="service-integrations.html" class="dropdown-item">
+                <div class="dropdown-icon">🔗</div>
+                <span>AI Integrations</span>
+              </a>
+              <a href="service-automation.html" class="dropdown-item">
+                <div class="dropdown-icon">⚡</div>
+                <span>Business Automation</span>
+              </a>
+              <a href="service-erp.html" class="dropdown-item">
+                <div class="dropdown-icon">🏢</div>
+                <span>Custom ERP Solution</span>
+              </a>
+              <a href="service-chatbots.html" class="dropdown-item">
+                <div class="dropdown-icon">💬</div>
+                <span>AI Chatbot Development</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="nav-dropdown">
+          <a href="industries.html" class="dropdown-toggle">
+            Industries
+            <svg class="dropdown-arrow" width="12" height="12" viewBox="0 0 12 12" fill="none">
+              <path d="M1 4L6 9L11 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+          <div class="dropdown-menu">
+            <div class="dropdown-grid">
+              <a href="industry-fintech.html" class="dropdown-item">
+                <div class="dropdown-icon">💰</div>
+                <span>FinTech</span>
+              </a>
+              <a href="industry-supply-chain.html" class="dropdown-item">
+                <div class="dropdown-icon">📦</div>
+                <span>Supply Chain</span>
+              </a>
+              <a href="industry-retail.html" class="dropdown-item">
+                <div class="dropdown-icon">🛒</div>
+                <span>Retail</span>
+              </a>
+            </div>
+          </div>
+        </div>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+
+      <!-- Header Actions -->
+      <div class="header-actions">
+        <a href="contact.html" class="btn btn-primary btn-md header-cta-desktop">
+          Book a Free Consultation
+        </a>
+
+        <!-- Hamburger Button — visible on mobile only -->
+        <button class="icon-btn"
+                id="hamburgerBtn"
+                aria-label="Toggle navigation menu"
+                aria-expanded="false"
+                aria-controls="mobileNav"
+                onclick="toggleMobileNav()">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Nav Drawer -->
+  <div class="mobile-nav" id="mobileNav" role="navigation" aria-label="Mobile navigation">
+    <div class="container">
+      <div class="mobile-nav-inner">
+        <a href="index.html">Home</a>
+        <div class="mobile-dropdown">
+          <div class="mobile-nav-link-row" style="display: flex; align-items: center; justify-content: space-between; width: 100%;">
+            <a href="services.html" style="flex-grow: 1; padding: 15px 15px; margin: 0;">Services</a>
+            <button class="mobile-toggle-arrow" onclick="toggleServiceMobile(event)" style="background: none; border: none; padding: 15px; color: var(--primary); cursor: pointer;">
+              <span class="chevron" style="display: inline-block; transition: transform 0.3s ease;">▾</span>
+            </button>
+          </div>
+          <div class="mobile-dropdown-menu" id="mobileServiceMenu" style="display: none; flex-direction: column; padding-left: 20px; background: rgba(0,0,0,0.02);">
+            <a href="service-rag.html">RAG App Development</a>
+            <a href="service-ai-app.html">AI App Development</a>
+            <a href="service-integrations.html">AI Integrations</a>
+            <a href="service-automation.html">Business Automation</a>
+            <a href="service-erp.html">Custom ERP Solution</a>
+            <a href="service-chatbots.html">AI Chatbot Development</a>
+          </div>
+        </div>
+        <div class="mobile-dropdown">
+          <div class="mobile-nav-link-row" style="display: flex; align-items: center; justify-content: space-between; width: 100%;">
+            <a href="industries.html" style="flex-grow: 1; padding: 15px 15px; margin: 0;">Industries</a>
+            <button class="mobile-toggle-arrow" onclick="toggleIndustriesMobile(event)" style="background: none; border: none; padding: 15px; color: var(--primary); cursor: pointer;">
+              <span class="chevron" style="display: inline-block; transition: transform 0.3s ease;">▾</span>
+            </button>
+          </div>
+          <div class="mobile-dropdown-menu" id="mobileIndustriesMenu" style="display: none; flex-direction: column; padding-left: 20px; background: rgba(0,0,0,0.02);">
+            <a href="industry-fintech.html">FinTech</a>
+            <a href="industry-supply-chain.html">Supply Chain</a>
+            <a href="industry-retail.html">Retail</a>
+          </div>
+        </div>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="contact.html" class="btn btn-primary btn-md header-cta-desktop" style="margin-top:6px; justify-content:center;">
+          Book a Free Consultation
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+<script>
+  function closeAnnouncement() {
+      document.getElementById("announcementBar").style.display = "none";
+      localStorage.setItem("announcementClosed", "true");
+  }
+
+  window.addEventListener('load', function() {
+      // Show announcement bar on EVERY refresh (ignores localStorage)
+      // Remove localStorage check to always show on refresh
+      // if (localStorage.getItem("announcementClosed") === "true") {
+      //     document.getElementById("announcementBar").style.display = "none";
+      // }
+  });
+</script>
+<style>
+  /* PREMIUM DROPDOWN STYLES */
+  .nav-dropdown {
+    position: relative;
+  }
+
+  .dropdown-toggle {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: inherit;
+    font-weight: 600;
+    position: relative;
+  }
+
+  .dropdown-arrow {
+    transition: transform 0.3s cubic-bezier(0.25,0.46,0.45,0.94);
+  }
+
+  .nav-dropdown:hover .dropdown-arrow {
+    transform: rotate(180deg);
+  }
+
+  .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 320px;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.15), 0 10px 30px rgba(0,0,0,0.1);
+    border: 1px solid rgba(0,0,0,0.05);
+    backdrop-filter: blur(20px);
+    opacity: 0;
+    visibility: hidden;
+    transform: none;
+    transition: all 0.3s cubic-bezier(0.25,0.46,0.45,0.94);
+    padding: 20px 0;
+    margin-top: 12px;
+    z-index: 1000;
+  }
+
+  .nav-dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+
+  }
+
+  .dropdown-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    padding: 0 20px;
+  }
+
+  .dropdown-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 20px;
+    text-decoration: none;
+    color: var(--text);
+    font-weight: 500;
+    border-radius: 12px;
+    transition: all 0.2s ease;
+    font-size: 15px;
+  }
+
+  .dropdown-item:hover {
+    background: linear-gradient(135deg, rgba(102,126,234,0.1), rgba(118,75,162,0.1));
+    color: #667eea;
+    transform: translateX(4px);
+  }
+
+  .dropdown-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    flex-shrink: 0;
+  }
+
+  /* MOBILE DROPDOWN IMPROVEMENTS */
+  .mobile-dropdown-menu a {
+    padding: 12px 20px;
+    border-radius: 8px;
+    margin: 4px 0;
+    transition: all 0.2s ease;
+  }
+
+  .mobile-dropdown-menu a:hover {
+    background: rgba(102,126,234,0.1);
+    color: #667eea;
+    padding-left: 24px;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    .dropdown-menu {
+      display: none;
+    }
+  }
+
+  /* Smooth animations */
+  @keyframes dropdownFadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .nav-dropdown:hover .dropdown-menu {
+    animation: dropdownFadeIn 0.3s cubic-bezier(0.25,0.46,0.45,0.94);
+  }
+   .announcement-bar-modern {
+    width: 100%;
+    position: relative;
+    z-index: 99;
+    background: linear-gradient(120deg, #007cf0, #00dfd8);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    color: #fff;
+    font-size: 14px;
+    overflow: hidden;
+}
+
+.announcement-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.announcement-left {
+    flex: 1;
+    overflow: hidden;
+}
+
+.announcement-text-wrapper {
+    display: inline-flex;
+    animation: scrollRightToLeft 18s linear infinite;
+    white-space: nowrap;
+}
+
+.announcement-text {
+    font-weight: 500;
+    padding-right: 2em; /* Space between repeats */
+}
+
+@keyframes scrollRightToLeft {
+    0% { transform: translateX(100%); }      /* START: Right edge of screen */
+    100% { transform: translateX(-100%); }   /* END: Left edge of screen */
+}
+
+.announcement-bar-modern:hover .announcement-text-wrapper {
+    animation-play-state: paused;
+}
+
+.announcement-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0;
+}
+
+.announcement-btn {
+    background: #000;
+    color: #fff !important;
+    padding: 8px 18px;
+    border-radius: 25px;
+    font-weight: 600;
+    font-size: 13px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.announcement-btn:hover {
+    background: rgba(255,255,255,0.95);
+    color: #007cf0 !important;
+    transform: translateY(-2px);
+}
+
+.announcement-close {
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    opacity: 0.9;
+    padding: 4px;
+    border-radius: 50%;
+    transition: all 0.2s;
+    background: rgba(255,255,255,0.2);
+}
+
+.announcement-close:hover {
+    opacity: 1;
+    background: rgba(255,255,255,0.3);
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .announcement-inner {
+        padding: 10px 16px;
+        flex-direction: column;
+        gap: 12px;
+        text-align: center;
+    }
+    .announcement-left { order: 2; }
+    .announcement-actions { order: 1; }
+    .announcement-text-wrapper { animation-duration: 22s; }
+}
+</style>

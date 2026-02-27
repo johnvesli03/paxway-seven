@@ -1,0 +1,670 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Paxway — AI & Enterprise Solutions</title>
+    <meta name="description" content="Paxway builds AI & enterprise solutions to automate workflows, integrate systems, and modernize operations."/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/styles.css">
+
+    <!-- ══ MOBILE HEADER SAFETY STYLES ══════════════════════
+         These ensure the header is always visible regardless
+         of how the partial loads. Override nothing on desktop.
+    ════════════════════════════════════════════════════════ -->
+    <style>
+        /* Guarantee header container is never hidden */
+        #header-container {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            min-height: 0;
+        }
+
+        /* Ensure site-header always renders visibly */
+        .site-header {
+            display: block !important;
+            width: 100%;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(234, 240, 255, 0.96) !important;
+            backdrop-filter: blur(20px) saturate(1.7);
+            -webkit-backdrop-filter: blur(20px) saturate(1.7);
+            border-bottom: 1px solid rgba(61, 90, 254, .14);
+            box-shadow: 0 1px 0 rgba(255,255,255,.75), 0 4px 20px rgba(15,23,42,.06);
+        }
+
+        /* ── Desktop header inner ── */
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 100px;
+            gap: 16px;
+            flex-wrap: nowrap;
+        }
+
+        /* ── Brand always visible ── */
+        .brand {
+            display: flex !important;
+            align-items: center;
+            gap: 10px;
+            font-weight: 900;
+            font-size: 17px;
+            color: #1e2a55;
+            flex-shrink: 0;
+            text-decoration: none;
+        }
+
+        .logo-img {
+            height: 90px;
+            width: auto;
+            object-fit: contain;
+            display: block;
+        }
+
+        /* ── Desktop nav ── */
+        .nav {
+            display: flex;
+            align-items: center;
+            height: 100%;
+            gap: 0;
+        }
+
+        /* ── Header actions ── */
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-shrink: 0;
+        }
+
+        /* ── Hamburger: hidden on desktop ── */
+        .icon-btn {
+            display: none;
+            appearance: none;
+            border: 1px solid rgba(15, 23, 42, .12);
+            background: rgba(255, 255, 255, .90);
+            width: 42px;
+            height: 42px;
+            border-radius: 10px;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 0;
+            padding: 11px;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(15, 23, 42, .06);
+            flex-shrink: 0;
+        }
+
+        .icon-btn span {
+            display: block;
+            width: 18px;
+            height: 2px;
+            background: rgba(15, 23, 42, .75);
+            border-radius: 2px;
+            margin: 3px 0;
+            transition: transform .25s ease, opacity .25s ease;
+        }
+
+        /* Animated X state */
+        .icon-btn.is-open span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+        .icon-btn.is-open span:nth-child(2) { opacity: 0; }
+        .icon-btn.is-open span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+        /* ── Mobile nav drawer ── */
+        .mobile-nav {
+            display: none;
+            border-top: 1px solid rgba(61, 90, 254, .10);
+            background: rgba(240, 244, 255, .99);
+        }
+        .mobile-nav.open { display: block; }
+
+        .mobile-nav-inner {
+            padding: 14px 0 18px;
+            display: grid;
+            gap: 8px;
+        }
+
+        .mobile-nav a {
+            display: block;
+            padding: 12px 16px;
+            font-weight: 700;
+            font-size: 15px;
+            border: 1px solid rgba(15, 23, 42, .09);
+            border-radius: 10px;
+            color: rgba(15, 23, 42, .62);
+            transition: background .14s, color .14s;
+            text-decoration: none;
+        }
+
+        .mobile-nav a:hover,
+        .mobile-nav a.active {
+            background: rgba(61, 90, 254, .08);
+            color: #1e2a55;
+            border-color: rgba(61, 90, 254, .18);
+        }
+
+        /* ════════════════════════════════════════
+           MOBILE BREAKPOINT — ≤ 900px
+           Show hamburger, hide desktop nav
+        ════════════════════════════════════════ */
+        @media (max-width: 900px) {
+
+            .icon-btn            { display: flex !important; }
+            .nav                 { display: none !important; }
+            .header-cta-desktop  { display: none !important; }
+
+            .header-inner {
+                height: 62px;
+            }
+
+            .logo-img { height: 36px; }
+        }
+
+        @media (max-width: 600px) {
+
+            .header-inner {
+                height: 58px;
+                gap: 10px;
+            }
+
+            .logo-img { height: 32px; }
+
+            .brand { font-size: 15px; gap: 8px; }
+
+            .brand-icon {
+                width: 32px;
+                height: 32px;
+                font-size: 12px;
+            }
+
+            .header-actions .btn {
+                height: 36px !important;
+                padding: 0 14px !important;
+                font-size: 13px !important;
+            }
+
+            .icon-btn {
+                width: 38px;
+                height: 38px;
+            }
+        }
+
+        @media (max-width: 380px) {
+            .header-inner { height: 56px; gap: 8px; }
+            .logo-img     { height: 28px; }
+            .brand-name   { display: none; }
+            .header-actions .btn {
+                height: 34px !important;
+                padding: 0 12px !important;
+                font-size: 12px !important;
+            }
+            .icon-btn { width: 36px; height: 36px; }
+        }
+      /* ══ STATS MOBILE - PERFECT ALIGNMENT ═══════════════════ */
+@media (max-width: 900px) {
+    .stats-grid {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 24px !important;
+        align-items: center !important;      /* CENTER ALL CARDS */
+        justify-content: center !important;
+        padding: 0 20px !important;
+        width: 100% !important;
+        max-width: 480px !important;
+        margin: 0 auto !important;
+    }
+
+    .stat-card {
+        width: 100% !important;
+        max-width: 400px !important;        /* PERFECT WIDTH */
+        padding: 32px 24px !important;      /* BALANCED PADDING */
+        text-align: center !important;
+        min-height: auto !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;     /* CENTER CONTENT */
+        justify-content: center !important;
+    }
+
+    .stat-icon {
+        width: 52px !important;
+        height: 52px !important;
+        margin-bottom: 16px !important;     /* PERFECT SPACING */
+        flex-shrink: 0 !important;
+    }
+
+    .stat-card h3 {
+        font-size: 32px !important;
+        margin: 0 0 8px 0 !important;       /* TIGHT SPACING */
+        line-height: 1.2 !important;
+    }
+
+    .stat-card p {
+        font-size: 14px !important;
+        margin: 0 !important;
+        line-height: 1.4 !important;
+    }
+}
+
+@media (max-width: 600px) {
+    .stats-grid { gap: 20px !important; padding: 0 16px !important; }
+    .stat-card { padding: 28px 20px !important; max-width: 360px !important; }
+    .stat-icon { width: 48px !important; height: 48px !important; }
+    .stat-card h3 { font-size: 28px !important; }
+}
+/* ══ HERO MOBILE - FULL RESPONSIVE FIX ════════════════════ */
+@media screen and (max-width: 900px) {
+    /* HERO SECTION */
+    section.hero.hero-motion {
+        padding: 55px 22px 45px 22px !important;
+        margin: 0 !important;
+        overflow-x: hidden !important;
+    }
+
+    /* KILL CONTAINER PADDING */
+    .hero .container,
+    .hero-inner {
+        width: 100% !important;
+        max-width: calc(100vw - 44px) !important;
+        padding: 0 !important;
+        margin: 0 auto !important;
+        box-sizing: border-box !important;
+    }
+
+    /* TITLE */
+    .hero-title {
+        font-size: 2.1rem !important;
+        line-height: 1.15 !important;
+        max-width: calc(100vw - 50px) !important;
+        padding: 0 8px !important;
+        margin: 0 auto !important;
+    }
+
+    /* BUTTONS STACK */
+    .hero-ctas {
+        flex-direction: column !important;
+        gap: 12px !important;
+        width: 100% !important;
+        max-width: 360px !important;
+        padding: 0 4px !important;
+        margin: 0 auto !important;
+    }
+
+    .hero-ctas .btn {
+        width: 100% !important;
+        height: 48px !important;
+    }
+
+    /* ART GRID */
+    .hero-art-grid {
+        grid-template-columns: 1fr 1fr !important;
+        gap: 8px !important;
+    }
+
+    .pill {
+        font-size: 12px !important;
+        padding: 6px 14px !important;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    section.hero.hero-motion {
+        padding: 45px 18px 35px 18px !important;
+    }
+
+    .hero-art-grid {
+        grid-template-columns: 1fr !important;
+    }
+}
+/* SOLID HOVER: No Opacity/Fade, just physical movement */
+    .service-link:hover {
+      opacity: 1 !important; /* Extra insurance against global CSS */
+    }
+
+    .service-card:hover {
+      transform: translateY(-12px);
+      /* Sharp, deep shadow to give it "weight" without transparency */
+      box-shadow: 0 20px 40px rgba(15, 23, 42, 0.15);
+      border-color: var(--accent); /* Highlight the edge instead of fading */
+    }
+
+    /* Optional: Make the image scale up slightly inside the card */
+    .service-card .card-img { overflow: hidden; }
+    .service-card .card-img img {
+      transition: transform 0.5s ease;
+      display: block;
+    }
+    .service-card:hover .card-img img {
+      transform: scale(1.05);
+    }
+
+    /* Make the arrow pop with your accent color */
+    .service-card:hover .arrow-link {
+      background: var(--accent);
+      color: white;
+    }
+
+
+    </style>
+</head>
+<body>
+
+<!-- ══ HEADER ══════════════════════════════════════════ -->
+<div id="header-container"></div>
+
+<!-- ══ MAIN ══════════════════════════════════════════ -->
+<main>
+
+    <!-- HERO -->
+    <section class="hero hero-motion">
+        <div class="hero-bg hero-bg--base" aria-hidden="true">
+            <div class="hero-bg-inner"></div>
+        </div>
+        <div class="hero-bg hero-bg--glow" aria-hidden="true">
+            <div class="hero-bg-inner"></div>
+        </div>
+
+        <div class="hero-color-overlay" aria-hidden="true"></div>
+        <div class="hero-scrim" aria-hidden="true"></div>
+
+        <div class="container hero-inner">
+            <p class="pill"><span class="dot"></span> AI & Enterprise Solutions</p>
+            <h1 class="hero-title">Empowering enterprises with AI-powered innovation</h1>
+
+            <div class="hero-ctas">
+                <a class="btn btn-primary btn-lg" href="contact.html">Book a Free Consultation</a>
+                <a class="btn btn-secondary btn-lg" href="services.html">Explore Services</a>
+            </div>
+
+            <div class="hero-art">
+                <div class="hero-art-card">
+                    <div class="hero-art-grid">
+                        <div class="hero-art-badge">RAG</div>
+                        <div class="hero-art-badge">Automation</div>
+                        <div class="hero-art-badge">ERP</div>
+                        <div class="hero-art-badge">Integrations</div>
+                    </div>
+                    <p class="hero-art-caption">Build · Integrate · Automate · Modernize</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- TRUSTED STRIP -->
+    <section class="section section-tight">
+        <div class="container">
+            <div class="trusted-slider">
+                <div class="trusted-track">
+                    <img src="images/c1.png" alt="Client 1">
+                    <img src="images/c2.png" alt="Client 2">
+                    <img src="images/c3.png" alt="Client 3">
+                    <img src="images/c4.png" alt="Client 4">
+                    <!-- Duplicate for seamless loop -->
+                    <img src="images/c1.png" alt="Client 1">
+                    <img src="images/c2.png" alt="Client 2">
+                    <img src="images/c3.png" alt="Client 3">
+                    <img src="images/c4.png" alt="Client 4">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- STATS SECTION -->
+    <section class="section">
+        <div class="container">
+            <div class="stats-grid">
+
+                <!-- 1 -->
+                <div class="stat-card">
+                    <div class="stat-icon yellow">
+                        <svg width="36" height="36" viewBox="0 0 24 24" fill="none"
+                             stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="7" r="4"/>
+                            <path d="M5.5 21a6.5 6.5 0 0 1 13 0"/>
+                        </svg>
+                    </div>
+                    <h3 class="counter" data-target="750">0</h3>
+                    <p>Happy Clients</p>
+                </div>
+
+                <!-- 2 -->
+                <div class="stat-card">
+                    <div class="stat-icon purple">
+                        <svg width="36" height="36" viewBox="0 0 24 24" fill="white">
+                            <path d="M12 2l2.9 6 6.6.9-4.8 4.7 1.2 6.5L12 17l-5.9 3.1 1.2-6.5-4.8-4.7 6.6-.9L12 2z"/>
+                        </svg>
+                    </div>
+                    <h3 class="counter" data-target="825">0</h3>
+                    <p>Client Ratings</p>
+                </div>
+
+                <!-- 3 -->
+                <div class="stat-card">
+                    <div class="stat-icon pink">
+                        <svg width="36" height="36" viewBox="0 0 24 24" fill="none"
+                             stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M5 13l4 4L19 7"/>
+                        </svg>
+                    </div>
+                    <h3 class="counter" data-target="450">0</h3>
+                    <p>Project Delivered</p>
+                </div>
+
+                <!-- 4 -->
+                <div class="stat-card">
+                    <div class="stat-icon green">
+                        <svg width="36" height="36" viewBox="0 0 24 24" fill="none"
+                             xmlns="http://www.w3.org/2000/svg">
+
+                            <path d="M12 15V15C14.2091 15 16 13.2091 16 11V11
+             M12 15V15C9.79086 15 8 13.2091 8 11V11
+             M12 15V20
+             M12 20H16
+             M12 20H8
+             M8 6V4H16V6
+             M8 6H6C4.89543 6 4 6.89543 4 8V8.43845
+             C4 9.35618 4.62459 10.1561 5.51493 10.3787L8 11
+             M8 6V11
+             M16 11L18.4851 10.3787
+             C19.3754 10.1561 20 9.35618 20 8.43845V8
+             C20 6.89543 19.1046 6 18 6H16
+             M16 11V6"
+                                  stroke="white"
+                                  stroke-width="2"
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3 class="counter" data-target="20">0</h3>
+                    <p>Business Awards</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <section class="page-head">
+        <div class="container">
+            <h1 class="page-title">Services</h1>
+            <p class="page-subtitle">Build, integrate, automate, and modernize with enterprise-grade delivery.</p>
+        </div>
+    </section>
+
+    <section class="section services-modern">
+        <div class="container">
+            <div class="services-grid">
+
+                <div class="services-col">
+                    <a href="service-rag.html" class="service-link">
+                        <div class="service-card">
+                            <div class="card-img"><img src="images/s1.jpeg" alt="RAG"></div>
+                            <div class="card-text">
+                                <h3>RAG App Development</h3>
+                                <p>Enterprise Retrieval-Augmented Generation systems powered by LLMs.</p>
+                            </div>
+                            <div class="arrow-link">↗</div>
+                        </div>
+                    </a>
+
+                    <a href="service-ai-app.html" class="service-link">
+                        <div class="service-card">
+                            <div class="card-text">
+                                <h3>AI App Development</h3>
+                                <p>Custom AI-powered applications from dashboards to predictive platforms.</p>
+                            </div>
+                            <div class="card-img"><img src="images/s2.jpeg" alt="AI App"></div>
+                            <div class="arrow-link">↗</div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="services-col">
+                    <a href="service-integrations.html" class="service-link">
+                        <div class="service-card large-feature">
+                            <div class="card-text">
+                                <h3>AI Integrations</h3>
+                                <p>Seamless AI model integration with APIs and enterprise security layers.</p>
+                            </div>
+                            <div class="card-img"><img src="images/s3.jpeg" alt="Integrations"></div>
+                            <div class="arrow-link">↗</div>
+                        </div>
+                    </a>
+
+                    <a href="service-automation.html" class="service-link">
+                        <div class="service-card">
+                            <div class="card-img"><img src="images/s6.jpeg" alt="Automation"></div>
+                            <div class="card-text">
+                                <h3>Business Automation</h3>
+                                <p>AI-driven workflow automation that eliminates repetitive tasks.</p>
+                            </div>
+                            <div class="arrow-link">↗</div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="services-col">
+                    <a href="service-erp.html" class="service-link">
+                        <div class="service-card">
+                            <div class="card-img"><img src="images/s4.jpeg" alt="ERP"></div>
+                            <div class="card-text">
+                                <h3>Custom ERP Solution</h3>
+                                <p>Modular ERP platforms with analytics and process integration.</p>
+                            </div>
+                            <div class="arrow-link">↗</div>
+                        </div>
+                    </a>
+
+                    <a href="service-chatbots.html" class="service-link">
+                        <div class="service-card">
+                            <div class="card-text">
+                                <h3>AI Chatbot Development</h3>
+                                <p>Context-aware conversational AI with omnichannel deployment.</p>
+                            </div>
+                            <div class="card-img"><img src="images/s5.jpeg" alt="Chatbots"></div>
+                            <div class="arrow-link">↗</div>
+                        </div>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- INDUSTRIES -->
+    <section class="section section-alt industries-modern">
+        <div class="container">
+
+            <div class="section-head">
+                <span class="section-label">Where we work</span>
+                <h2 class="section-title">Industries &amp; Use Cases</h2>
+                <p class="section-subtitle">
+                    Practical solutions tailored to your domain workflows and compliance requirements.
+                </p>
+            </div>
+
+            <div class="industries-list">
+
+                <!-- FinTech -->
+                <div class="industry-item">
+                    <div class="industry-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="2" y="6" width="20" height="12" rx="2"/>
+                            <path d="M2 10h20"/>
+                        </svg>
+                    </div>
+                    <div class="industry-content">
+                        <h3>FinTech</h3>
+                        <p>Secure AI integrations, intelligent reporting, and real-time risk insights.</p>
+                    </div>
+                </div>
+
+
+                <!-- Supply Chain -->
+                <div class="industry-item">
+                    <div class="industry-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="1" y="3" width="15" height="13"/>
+                            <path d="M16 8h4l3 3v5h-7z"/>
+                            <circle cx="5.5" cy="18.5" r="2.5"/>
+                            <circle cx="18.5" cy="18.5" r="2.5"/>
+                        </svg>
+                    </div>
+                    <div class="industry-content">
+                        <h3>Supply Chain</h3>
+                        <p>Forecasting and exception handling that reduces delays and cuts costs.</p>
+                    </div>
+                </div>
+
+                <!-- Retail -->
+                <div class="industry-item">
+                    <div class="industry-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M6 2l1.5 4h9L18 2"/>
+                            <path d="M3 6h18l-1.5 14h-15z"/>
+                        </svg>
+                    </div>
+                    <div class="industry-content">
+                        <h3>Retail</h3>
+                        <p>Personalization engines, purchase insights, and operational efficiency.</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="section-actions">
+                <a class="btn btn-secondary btn-md" href="industries.html">Explore industries</a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta">
+        <div class="container cta-inner">
+            <div>
+                <h2 class="cta-title">Ready to modernize operations with AI?</h2>
+                <p class="cta-subtitle">Tell us what you're building. We'll reply within 1–2 business days.</p>
+            </div>
+            <div class="cta-cta">
+                <a class="btn btn-primary btn-lg" href="contact.html">Get Started Today</a>
+                <p class="fineprint">No spam. Just a quick reply and next steps.</p>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<div id="footer-container"></div>
+<script src="assets/js/include.js"></script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/hero-motion.js"></script>
+</body>
+</html>
