@@ -12,9 +12,7 @@
 
       <div class="announcement-actions">
         <a href="contact.html" class="announcement-btn">Get in Touch</a>
-      <button type="button" class="announcement-close" data-announce-close aria-label="Close announcement">
-        ✕
-    </button>
+        <button class="announcement-close" type="button" data-announce-close aria-label="Close announcement">✕</button>
       </div>
     </div>
   </div>
@@ -169,41 +167,32 @@
 <script>
 (() => {
   const KEY = "announcementClosed";
-  const storage = sessionStorage; // change to localStorage if you want it to persist longer
+  const storage = sessionStorage; // use localStorage if you want it to persist across browser restarts
 
-  function initAnnouncementClose() {
+  function hideBar(bar) {
+    if (!bar) return;
+    bar.style.display = "none";
+    storage.setItem(KEY, "true");
+  }
+
+  // Hide on load if previously closed
+  window.addEventListener("DOMContentLoaded", () => {
     const bar = document.getElementById("announcementBar");
-    const btn = document.querySelector("[data-announce-close]");
+    if (storage.getItem(KEY) === "true") hideBar(bar);
+  });
 
-    if (!bar || !btn) return false;
+  // Close on click (works even if header is injected later)
+  document.addEventListener("click", (e) => {
+    const btn = e.target.closest("[data-announce-close]");
+    if (!btn) return;
 
-    // Hide immediately if previously closed
-    if (storage.getItem(KEY) === "true") {
-      bar.style.display = "none";
-    }
-
-    // Bind click
-    btn.addEventListener("click", (e) => {
-      e.preventDefault();
-      e.stopPropagation();
-
-      // Prefer closing the bar this button is inside (handles duplicate headers)
-      const localBar = btn.closest("#announcementBar") || btn.closest(".announcement-bar-modern") || bar;
-      if (localBar) localBar.style.display = "none";
-
-      storage.setItem(KEY, "true");
-    });
-
-    return true;
-  }
-
-  // Try now, and again when DOM is ready (covers injected templates)
-  if (!initAnnouncementClose()) {
-    document.addEventListener("DOMContentLoaded", initAnnouncementClose, { once: true });
-    window.addEventListener("load", initAnnouncementClose, { once: true });
-  }
+    e.preventDefault();
+    const bar = btn.closest("#announcementBar") || document.getElementById("announcementBar");
+    hideBar(bar);
+  });
 })();
 </script>
+
 
 <style>
   /* PREMIUM DROPDOWN STYLES */
