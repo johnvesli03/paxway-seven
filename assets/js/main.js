@@ -102,5 +102,16 @@ function toggleIndustriesMobile(event) {
   menu.style.display = menu.style.display === 'none' ? 'block' : 'none';
   chevron.style.transform = menu.style.display === 'block' ? 'rotate(180deg)' : 'rotate(0deg)';
 }
+   function closeAnnouncement() {
+        document.getElementById("announcementBar").style.display = "none";
+        localStorage.setItem("announcementClosed", "true");
+    }
 
+    window.addEventListener('load', function() {
+        // Show announcement bar on EVERY refresh (ignores localStorage)
+        // Remove localStorage check to always show on refresh
+        // if (localStorage.getItem("announcementClosed") === "true") {
+        //     document.getElementById("announcementBar").style.display = "none";
+        // }
+    });
 
